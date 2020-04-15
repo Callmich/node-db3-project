@@ -5,7 +5,7 @@ module.exports = {
     findById,
     findSteps,
     add,
-    // update,
+    update,
     // remove
 }
 
@@ -48,3 +48,22 @@ function add(scheme){
         console.log("Here is the error", error)
     })
 }
+
+
+// update(changes, id):
+// Expects a changes object and an id.
+// Updates the scheme with the given id.
+// Resolves to the newly updated scheme object.
+
+function update(changes, id){
+    return dB('schemes')
+    .where({ id })
+    .update(changes)
+    .then(()=>{
+        return findById(id)
+    })
+    .catch(error =>{
+        console.log("Heres the error",error)
+    })
+}
+
