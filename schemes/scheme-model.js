@@ -6,7 +6,7 @@ module.exports = {
     findSteps,
     add,
     update,
-    // remove
+    remove
 }
 
 
@@ -65,5 +65,29 @@ function update(changes, id){
     .catch(error =>{
         console.log("Heres the error",error)
     })
+}
+
+
+// remove(id):
+// Removes the scheme object with the provided id.
+// Resolves to the removed scheme
+// Resolves to null on an invalid id.
+// (Hint: Only worry about removing the scheme. The database is configured to automatically remove all associated steps.)
+
+function remove(id){
+
+    findById(id)
+    .then(item=>{
+        return (deltedItem =item)
+    })
+
+    console.log(findById)
+ return dB('schemes')
+    .where({ id })
+    .del()
+    .then(count=>{
+        return deltedItem
+    })
+
 }
 
