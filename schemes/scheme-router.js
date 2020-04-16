@@ -21,7 +21,8 @@ router.get('/:id', (req, res) => {
   .then(scheme => {
     if (scheme) {
       res.json(scheme);
-    } else {
+    } 
+    else {
       res.status(404).json({ message: 'Could not find scheme with given id.' })
     }
   })
